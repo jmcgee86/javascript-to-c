@@ -11,7 +11,7 @@ long long factorialize(input)
         i *= input;
         num = i;
     }
-    printf("%lld", num);
+    printf("%lld\n", num);
     return num;
 }
 
