@@ -6,7 +6,7 @@
 long long factorialize(input)
 {
     long long num;
-    for (int i = 1; input > 0; input--)
+    for (long long i = 1; input > 0; input--)
     {
         i *= input;
         num = i;
