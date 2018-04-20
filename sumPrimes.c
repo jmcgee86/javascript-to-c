@@ -2,8 +2,8 @@
 #include <cs50.h>
 #include <math.h>
 
-int checkPrime(num){
-  for (int i = 2; i<num; i++){
+bool checkPrime(int num){
+  for (int i = 2, max = num / 2; i <= max; i++){
     if (num % i ==0){
       return false;
     }
@@ -11,17 +11,15 @@ int checkPrime(num){
   return true;
 }
 int sumPrimes(input) {
-  int sum = 0;
-  for (int i=2; i<=input; i++){
+  int sum = 2;
+  for (int i=3; i<=input; i += 2){
     if (checkPrime(i)){
       sum += i;
     }
   }
-  printf("%i\n", sum);
+  //printf("%i\n", sum);
   return sum;
 }
-
-
 
 int main(int argc, string argv[])
 {
@@ -30,7 +28,7 @@ int main(int argc, string argv[])
     if (argc ==2)
     {
         input = atoi(argv[1]);
-        sumPrimes(input);
+        printf("%i\n", sumPrimes(input));
     }
     return 0;
 }
