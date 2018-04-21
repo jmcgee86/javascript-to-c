@@ -14,27 +14,46 @@
 #include <cs50.h>
 #include <string.h>
 
-int strContains(str1, str2)
+int strContains(string str1, string str2)
 {
     int match = 0;
-
-    for (int i = 0; i< strlen(str2); i++)
+    int i = 0;
+    while (str2[i] != '\0')
     {
-        for (int j; j <strlen(str1); j++)
-        if str1[i] == str2[j]
+        for (int j = 0; j <= strlen(str1); j++)
         {
-            match++// check if
+            if (str2[i] == str1[j])
+            {
+                match++;
+                if (match == strlen(str2))
+                {
+                    printf("The string exists\n");
+                    return 1;
+                }
+                else
+                    {
+                         i++;
+                    }
+            }
+            else
+            {
+                match = 0;
+            }
         }
+        i++;
     }
+
+    printf("The string does not exist\n");
+    return 0;
 }
 
 int main(int argc, char* argv[])
 {
-    char* str1[LENGTH + 1];
-    char* str2[LENGTH + 1];
     if (argc == 3)
     {
-        char* str1 = argv[1];
-        char* str2 = argv[2];
+        string str1 = argv[1];
+        string str2 = argv[2];
+        strContains(str1, str2);
     }
+return 0;
 }
