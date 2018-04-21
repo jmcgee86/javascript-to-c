@@ -12,20 +12,37 @@
 
 #include <stdio.h>
 #include <cs50.h>
-#include <string.h>
 
 int strContains(string str1, string str2)
 {
     int match = 0;
     int i = 0;
+    int length1 = 0;
+    int k = 0;
+    int length2 = 0;
+    int l = 0;
+
+    while(str1[k] !='\0')
+    {
+        length1++;
+        k++;
+    }
+
+    while(str2[l] !='\0')
+    {
+        length2++;
+        l++;
+    }
+
+
     while (str2[i] != '\0')
     {
-        for (int j = 0; j <= strlen(str1); j++)
+        for (int j = 0; j <= length1; j++)
         {
             if (str2[i] == str1[j])
             {
                 match++;
-                if (match == strlen(str2))
+                if (match == length2)
                 {
                     printf("The string exists\n");
                     return 1;
