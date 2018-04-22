@@ -21,6 +21,7 @@ int strContains(string str1, string str2)
     int k = 0;
     int length2 = 0;
     int l = 0;
+    int matches = 0;
 
     while(str1[k] !='\0')
     {
@@ -44,8 +45,9 @@ int strContains(string str1, string str2)
                 match++;
                 if (match == length2)
                 {
-                    printf("The string exists\n");
-                    return 1;
+                    matches++;
+                    match = 0;
+                    i = 0;
                 }
                 else
                     {
@@ -59,14 +61,31 @@ int strContains(string str1, string str2)
         }
         i++;
     }
-
+    if (matches == 1)
+    {
+        printf("The string exists\n");
+        return 1;
+    }
+    else if (matches > 1)
+    {
+        printf("This string is full of the word\n");
+        return 2;
+    }
+    else
+    {
     printf("The string does not exist\n");
     return 0;
+    }
 }
 
 int main(int argc, char* argv[])
 {
-    if (argc == 3)
+    if (argc != 3)
+    {
+        printf("Usage: ./strContains \"string one\" \"string two\"\n");
+        return 1;
+    }
+    else
     {
         string str1 = argv[1];
         string str2 = argv[2];
